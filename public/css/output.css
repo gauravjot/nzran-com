@@ -1871,6 +1871,16 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
 .text-left {
   text-align: left;
 }
