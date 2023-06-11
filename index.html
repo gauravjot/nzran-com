@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<link>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>nzran</title>
+    <link rel="stylesheet" href="styles.css"/>
+	</head>
+	<body>
+		<div class="gradient-shell">
+			<div class="gradient"></div>
+		</div>
+		<div class="backdrop"></div>
+		<div class="content">
+			<nav class="flex my-6 gap-2 place-items-center">
+				<div class="logo flex-1">
+					<h1 class="text-2xl lg:text-4xl font-black tracking-wider">nzran</h1>
+				</div>
+				<main>
+					<a
+						href="https://github.com/nzran"
+						class="lightbg px-6 py-3 rounded-lg font-medium text-sm"
+						aria-label="GitHub"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						GitHub
+					</a>
+				</main>
+			</nav>
+			<div class="my-8 cool-stuff">Check out some of our coolest stuff.</div>
+			<div
+				id="cards"
+				class="2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1"
+			>
+				<a
+					href="https://www.npmjs.com/package/use-doc-theme"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<div class="card">
+						<div class="card-content">
+							<div class="card-image">
+								<img
+									src="https://raw.githubusercontent.com/nzran/use-doc-theme/main/usedoctheme-logo.png"
+								/>
+							</div>
+							<div class="card-info-wrapper">
+								<div class="card-info-title">
+									<h3>Use Doc Theme</h3>
+									<p>
+										React hook for switching theme between light, dark
+										and system. Compatible with Tailwind CSS.
+									</p>
+									<div class="mt-3 flex gap-2">
+										<span
+											class="inline-block lightbg text-xs py-1 px-2 rounded font-medium"
+											>npm</span
+										>
+										<span
+											class="inline-block lightbg text-xs py-1 px-2 rounded font-medium"
+											>react-hook</span
+										>
+										<span
+											class="inline-block lightbg text-xs py-1 px-2 rounded font-medium"
+											>reactjs</span
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- script -->
+		<script src="main.js"></script>
+	</body>
+</html>

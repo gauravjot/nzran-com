@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+@import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
+
+body {
+	background: #000;
+	color: #fff;
+	font-family: "Inter", "DM Sans", Arial, sans-serif;
+	margin: 0;
+	@apply bg-black;
+}
+
+*,
+*::before,
+*::after {
+	font-family: inherit;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	outline: calc(var(--debug) * 1px) dotted hsl(calc(var(--debug) * 10 * 1deg), 60%, 60%);
+}
+
+.cool-stuff {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* background gradient */
+.gradient {
+	--size: 250px;
+	--speed: 25s;
+	--easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+	width: var(--size);
+	height: var(--size);
+	filter: blur(calc(var(--size) / 5));
+	background-image: linear-gradient(#e39600, #d53a9d, #743ad5, #3ab6d5);
+	animation: rotate var(--speed) var(--easing) alternate infinite;
+	border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+}
+
+.gradient-shell {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	display: flex;
+	min-height: 100%;
+	place-content: center;
+	place-items: center;
+}
+.gradient-shell::before {
+	content: "";
+	position: absolute;
+	width: 123px;
+	height: 123px;
+	left: 10%;
+	top: 20px;
+	filter: blur(90px);
+	background: #d53a9d;
+	z-index: 5;
+}
+.gradient-shell::after {
+	content: "";
+	position: absolute;
+	width: 123px;
+	height: 123px;
+	left: 80%;
+	top: 550px;
+	background-color: #18b2de;
+	filter: blur(80px);
+	z-index: 2;
+}
+
+.backdrop {
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	min-height: 100%;
+	inset: 0;
+	z-index: 1;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.gradient {
+	transition: all 0.25s ease-out;
+}
+
+@media (min-width: 720px) {
+	.gradient {
+		--size: 500px;
+	}
+}
+/* main */
+.content {
+	z-index: 5;
+	position: relative;
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+/* card */
+#cards {
+	display: grid;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+#cards:hover > .card::after {
+	opacity: 1;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.07);
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	height: 260px;
+	flex-direction: column;
+	position: relative;
+}
+
+.card:hover::before {
+	opacity: 1;
+}
+
+.card::before,
+.card::after {
+	border-radius: inherit;
+	content: "";
+	height: 100%;
+	left: 0px;
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	transition: opacity 500ms;
+	width: 100%;
+}
+
+.card::before {
+	background: radial-gradient(
+		800px circle at var(--mouse-x) var(--mouse-y),
+		rgba(255, 255, 255, 0.06),
+		transparent 40%
+	);
+	z-index: 3;
+}
+
+.card::after {
+	background: radial-gradient(
+		600px circle at var(--mouse-x) var(--mouse-y),
+		rgba(255, 255, 255, 0.06),
+		transparent 40%
+	);
+	z-index: 1;
+}
+
+.card > .card-content {
+	background-color: rgba(8, 8, 8, 0.7);
+	border-radius: inherit;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	inset: 1px;
+	padding: 10px;
+	position: absolute;
+	z-index: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+span {
+	color: rgb(240, 240, 240);
+	font-weight: 400;
+	margin: 0px;
+}
+
+i {
+	color: rgb(240, 240, 240);
+}
+
+.card-image {
+	align-items: center;
+	display: flex;
+	height: 140px;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.card-image > i {
+	font-size: 6em;
+	opacity: 0.25;
+}
+
+.card-info-wrapper {
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	justify-content: flex-start;
+	padding: 0px 12px;
+}
+
+.card-info > img {
+	width: 100%;
+	display: block;
+}
+
+.card-info-title > h3 {
+	font-size: 1.1em;
+	line-height: 20px;
+}
+
+.card-info-title > p {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 0.85em;
+	margin-top: 8px;
+}
+
+@media (max-width: 1000px) {
+	body {
+		align-items: flex-start;
+		overflow: auto;
+	}
+}
+@media (max-width: 500px) {
+	.content {
+		max-width: 92%;
+	}
+	.card-image > i {
+		font-size: 3em;
+	}
+	.card-info-wrapper {
+		padding: 0px 10px;
+	}
+	.card-info > i {
+		font-size: 0.8em;
+	}
+	.card-info-title > h3 {
+		font-size: 0.9em;
+	}
+	.card-info-title > p {
+		font-size: 0.8em;
+		margin-top: 4px;
+	}
+}
+.lightbg {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+.lightbg:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
