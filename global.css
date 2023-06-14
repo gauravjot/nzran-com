@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card .card-image {
+	/* background-image: linear-gradient(
+		45deg,
+		rgba(227, 150, 0, 0.15),
+		rgba(213, 58, 157, 0.15),
+		rgba(116, 58, 213, 0.15)
+	); */
+
+	@apply bg-[rgba(58,182,213,0.05)] rounded-md mb-4;
+}
